@@ -1,0 +1,17 @@
+{
+  "credentials": {
+    "github": {
+      "username": "",
+      "password": ""
+    },
+    "gitee": {
+      "username": "",
+      "password": ""
+    },
+    "gitcode": {
+      "username": "",
+      "password": ""
+    }
+  },
+  "repositories": {}
+}

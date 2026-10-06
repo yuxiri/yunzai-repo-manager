@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JS 插件管理</title>
+  <link rel="stylesheet" href="js-manager.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div><span class="eyebrow">单文件插件</span><h1>JS 插件管理</h1>
+        <p>管理 plugins/example 中的 JS 文件。修改后可重启 Yunzai 确保生效。</p></div>
+      <div class="actions"><button id="refresh">刷新</button><button id="upload">上传 JS</button><button id="new-file" class="primary">新建插件</button></div>
+    </header>
+    <div id="status" role="status" aria-live="polite"></div>
+    <div class="tabs" role="tablist" aria-label="插件管理视图">
+      <button id="files-tab" class="selected" role="tab" aria-selected="true">JS 插件 <span id="file-count">0</span></button>
+      <button id="history-tab" role="tab" aria-selected="false">回收站与备份 <span id="history-count">0</span></button>
+    </div>
+    <section id="files-panel" role="tabpanel" aria-labelledby="files-tab">
+      <div class="filters">
+        <input id="search" type="search" placeholder="搜索文件名" aria-label="搜索插件">
+        <select id="state-filter" aria-label="按状态筛选"><option value="">全部状态</option><option value="enabled">启用</option><option value="disabled">停用</option></select>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>插件文件</th><th>文件状态</th><th>大小 / 修改时间</th><th>操作</th></tr></thead><tbody id="files-body"></tbody></table></div>
+      <p class="hint">只读取 plugins/example 第一层的 JS 插件；上传和新建也固定保存到此目录。</p>
+    </section>
+    <section id="history-panel" role="tabpanel" aria-labelledby="history-tab" hidden>
+      <p class="hint">删除的文件和修改前的版本保存在这里。恢复时不会覆盖现有同名文件。</p>
+      <div class="table-wrap"><table><thead><tr><th>原文件</th><th>记录类型</th><th>保存时间</th><th>操作</th></tr></thead><tbody id="history-body"></tbody></table></div>
+    </section>
+  </main>
+  <input id="file-upload" type="file" accept=".js,text/javascript,application/javascript" hidden>
+  <dialog id="editor">
+    <form id="editor-form">
+      <div class="dialog-heading"><h2 id="editor-title">新建 JS 插件</h2><button id="editor-close" type="button" aria-label="关闭编辑器">关闭</button></div>
+      <div id="create-fields" class="create-fields">
+        <p class="hint">存放目录：plugins/example</p>
+        <label>文件名<input id="editor-name" value="my-plugin.js" autocomplete="off" required></label>
+        <label class="check-label"><input id="editor-enabled" type="checkbox" checked> 创建后启用</label>
+      </div>
+      <p id="editor-path" class="hint"></p>
+      <label class="code-label" for="editor-code">插件源码</label>
+      <textarea id="editor-code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="插件源码"></textarea>
+      <div id="editor-status" role="status" aria-live="polite"></div>
+      <footer><span class="hint">保存前检查 JS 语法 · Ctrl / ⌘ + S 保存</span><div class="actions"><button id="editor-cancel" type="button">取消</button><button id="editor-save" class="primary" type="submit">保存</button></div></footer>
+    </form>
+  </dialog>
+  <script src="js-manager.js"></script>
+</body>
+</html>

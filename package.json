@@ -1,0 +1,13 @@
+{
+  "name": "yunzai-repo-manager",
+  "version": "1.2.1",
+  "description": "Yunzai-Bot 仓库地址切换、凭据配置与独立 JS 插件管理",
+  "type": "module",
+  "private": true,
+  "author": "yuxiri",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuxiri/yunzai-repo-manager.git"
+  },
+  "license": "MIT"
+}
