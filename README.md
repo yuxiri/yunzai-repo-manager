@@ -4,8 +4,6 @@
 
 无额外 npm 依赖。
 
-作者：[@yuxiri](https://github.com/yuxiri)。
-
 ## 目录
 
 - [功能与入口](#功能与入口)
