@@ -4,6 +4,9 @@
   "description": "Yunzai-Bot 仓库地址切换、凭据配置与独立 JS 插件管理",
   "type": "module",
   "private": true,
+  "scripts": {
+    "test": "node --test tests/global-credentials.test.mjs"
+  },
   "author": "yuxiri",
   "repository": {
     "type": "git",
